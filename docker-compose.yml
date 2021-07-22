@@ -1,0 +1,22 @@
+version: "3.8"
+
+volumes:
+     apachedata:
+       name: apachedata
+     apacheconfig:
+       name: apacheconfigs-files
+     apachehtml:
+       name: apachehtml_docs
+
+services:
+     apache-host:
+          container_name: apache-host
+          hostname: unofficialdevrycom.dev
+          environment:
+               TZ: "America/New_York"
+          image: "httpd:latest"
+          restart: "always"
+          volumes:
+            - apacheconfig:/usr/local/apache2/conf:rw
+            - apachehtml:/usr/local/apache2/htdocs:rw
+            - apachedata:/usr/local/apache2:rw
