@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title></title>
+
+    <!--
+    we are using highlight JS to add syntax highlighting
+    !-->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/styles/androidstudio.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/highlight.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <style>
+        body {
+            background-color: #161B28;
+            color: white;
+        }
+        h1, h2, h3, h4, h5 ,h6 ,h7, h8 {
+            color: #FEC221;
+        }
+        .panel {
+            background-color: #8E8E8E;
+        }
+    </style>
+</head>
+<body>
+
+
+<div class="p-5 mb-4 bg-dark rounded-3" style="height: 300px">
+    <div class="container-fluid py-5" style="position: relative">
+        <div style="position: absolute; left:  4.25rem; width: 100%;">
+            <h1 class="display-5 fw-bold">Code Report</h1> 
+            <p class="col-md-8 fs-4">Total of 0 suggestions/errors found</p>
+        </div>
+        
+        <div style="position: absolute; right:  4rem; top:  48px;">
+            <img class="icon-27yU2q" src="https://cdn.discordapp.com/icons/618254766396538901/4813168d6c773e84b60fe2405ddb8c65.webp?size=128" alt="" width="128" height="128" aria-hidden="true">
+        </div>
+    </div>
+</div>
+
+<div class="container">
+</div>
+<div class="container p-3"><pre><code class="language-python">"""
+Item
+   usable / consumable
+   object / weapon
+   title / name
+   description
+   size / weight
+   constraints on usability
+"""
+
+
+class Item:
+    def __init__(self, **kwargs):
+        """
+        Stores basic information regarding items
+            name (str): text that represents item
+            weight (float): how heavy the item is
+            desc (str): description of item
+        :param kwargs:
+        """
+        self._name = kwargs.pop("name", "DefaultName")
+        self._weight = kwargs.pop("weight", 0.0)
+        self._desc = kwargs.pop("desc", "")
+        self._stackable = kwargs.pop("stackable", False)
+        self._item_count = kwargs.pop("stack_count", 1)
+        self._stack_size = kwargs.pop("stack_size", 1)
+        self._price = kwargs.pop("price", 0.01)
+
+        if len(kwargs) > 0:
+            raise Exception("ITEM DOES NOT USE ALL PARAMETERS: ", kwargs)
+
+    def increase_stack(self, amount=1):
+        self._item_count += amount
+
+        if self._item_count > self._stack_size:
+            self._item_count = self._stack_size
+
+    def decrease_stack(self, amount=1):
+        self._item_count -= amount
+
+        if self._item_count < 0:
+            self._item_count = 0
+
+    @property
+    def exhausted(self):
+        return self._item_count == 0
+
+    @property
+    def name(self):
+        return self._name
+
+    @property
+    def weight(self):
+        return self._weight
+
+    @property
+    def desc(self):
+        return self._desc
+
+    @property
+    def is_stackable(self):
+        return self._stackable
+
+    @property
+    def item_count(self):
+        return self._item_count
+
+    @property
+    def at_max_stack(self):
+        return self.item_count == self._stack_size
+
+    @property
+    def price(self):
+        return self._price</code></pre></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+      document.querySelectorAll('pre code').forEach((el) => {
+        hljs.highlightElement(el);
+      });
+    });
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+    return new bootstrap.Tooltip(tooltipTriggerEl)
+})
+</script>
+</body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title></title>
+
+    <!--
+    we are using highlight JS to add syntax highlighting
+    !-->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/styles/androidstudio.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/highlight.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <style>
+        body {
+            background-color: #161B28;
+            color: white;
+        }
+        h1, h2, h3, h4, h5 ,h6 ,h7, h8 {
+            color: #FEC221;
+        }
+        .panel {
+            background-color: #8E8E8E;
+        }
+    </style>
+</head>
+<body>
+
+
+<div class="p-5 mb-4 bg-dark rounded-3" style="height: 300px">
+    <div class="container-fluid py-5" style="position: relative">
+        <div style="position: absolute; left:  4.25rem; width: 100%;">
+            <h1 class="display-5 fw-bold">Code Report</h1> 
+            <p class="col-md-8 fs-4">Total of 2 suggestions/errors found</p>
+        </div>
+        
+        <div style="position: absolute; right:  4rem; top:  48px;">
+            <img class="icon-27yU2q" src="https://cdn.discordapp.com/icons/618254766396538901/4813168d6c773e84b60fe2405ddb8c65.webp?size=128" alt="" width="128" height="128" aria-hidden="true">
+        </div>
+    </div>
+</div>
+
+<div class="container">
+        <div class="bg-dark p-3">
+                <h2>Found on line 1  on column 0</h2>
+            <p>According to pylint - with code import-error</p>
+            <p>Unable to import &#x27;Item&#x27;</p>
+            
+            <pre><code class="language-python"># Unable to import &#x27;Item&#x27;&#xA;from Item import Item&#xD;</code></pre>
+        </div>
+        <br/><br/>
+        <div class="bg-dark p-3">
+                <h2>Found on line 13 </h2>
+            <p>According to pylint - with code pointless-string-statement</p>
+            <p>String statement has no effect</p>
+            
+            <pre><code class="language-python">   race&#xD;&#xA;&#xA;# String statement has no effect&#xA;&quot;&quot;&quot;&#xD;</code></pre>
+        </div>
+        <br/><br/>
+</div>
+<div class="container p-3"><pre><code class="language-python">from Item import Item
+
+"""
+Actor
+   inventory
+   name
+   description
+   hitpoints
+   primary_weapon
+   defensive points
+   armor
+   race
+"""
+
+
+class Actor:
+    def __init__(self, **kwargs):
+        self._inventory = kwargs.pop("inventory", [])
+        self._name = kwargs.pop("name", "DefaultName")
+        self._desc = kwargs.pop("desc", "")
+        self._hitpoints = kwargs.pop("hitpoints", 100.0)
+        self._max_health = kwargs.pop("max_health", 100.0)
+        self._primary_weapon = kwargs.pop("primary_weapon", None)
+
+        if len(kwargs) > 0:
+            raise Exception("ACTOR DID NOT CONSUME ALL OF KWARGS", kwargs)
+
+    def _find_item(self, name: str):
+        """
+        Gets the first item in inventory with matching name
+        AND not at the max stack
+        Returns None if not found
+        :param name: name of item to find
+        :return: Item | None
+        """
+        for item in self._inventory:
+            if item.name == name and not item.at_max_stack:
+                return item
+        return None
+
+    def add_item(self, item: Item):
+        my_item = self._find_item(item.name)
+
+        if my_item:
+            my_item.increase()
+        else:
+            self._inventory.append(item)
+
+    @property
+    def name(self):
+        return self._name
+
+    @property
+    def desc(self):
+        return self._desc
+
+    @property
+    def hitpoints(self):
+        return self._hitpoints
+
+    def heal(self, amount: float):
+        """
+        Applies :amount: of health to instance
+        :param amount: Amount of health to ADD
+        """
+        self._hitpoints += amount
+
+        if self._hitpoints > self._max_health:
+            self._hitpoints = self._max_health
+
+    def take_damage(self, amount: float):
+        """
+        Applies :amount: of damage to instance
+        :param amount:
+        """
+        self._hitpoints -= amount
+
+        if self._hitpoints < 0:
+            self._hitpoints = 0
+</code></pre></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+      document.querySelectorAll('pre code').forEach((el) => {
+        hljs.highlightElement(el);
+      });
+    });
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+    return new bootstrap.Tooltip(tooltipTriggerEl)
+})
+</script>
+</body>
+</html>
