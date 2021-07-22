@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title></title>
+
+    <!--
+    we are using highlight JS to add syntax highlighting
+    !-->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/styles/androidstudio.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/highlight.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <style>
+        body {
+            background-color: #161B28;
+            color: white;
+        }
+        h1, h2, h3, h4, h5 ,h6 ,h7, h8 {
+            color: #FEC221;
+        }
+        .panel {
+            background-color: #8E8E8E;
+        }
+    </style>
+</head>
+<body>
+
+
+<div class="p-5 mb-4 bg-dark rounded-3" style="height: 300px">
+    <div class="container-fluid py-5" style="position: relative">
+        <div style="position: absolute; left:  4.25rem; width: 100%;">
+            <h1 class="display-5 fw-bold">Code Report</h1> 
+            <p class="col-md-8 fs-4">Total of 6 suggestions/errors found</p>
+        </div>
+        
+        <div style="position: absolute; right:  4rem; top:  48px;">
+            <img class="icon-27yU2q" src="https://cdn.discordapp.com/icons/618254766396538901/4813168d6c773e84b60fe2405ddb8c65.webp?size=128" alt="" width="128" height="128" aria-hidden="true">
+        </div>
+    </div>
+</div>
+
+<div class="container">
+        <div class="bg-dark p-3">
+                <h2>Found on line 2  on column 0</h2>
+            <p>According to pylint - with code import-error</p>
+            <p>Unable to import &#x27;Actor&#x27;</p>
+            
+            <pre><code class="language-python">from Enemy import Enemy&#xD;&#xA;&#xA;# Unable to import &#x27;Actor&#x27;&#xA;from Actor import Actor&#xD;</code></pre>
+        </div>
+        <br/><br/>
+        <div class="bg-dark p-3">
+                <h2>Found on line 2  on column 0</h2>
+            <p>According to pylint - with code unused-import</p>
+            <p>Unused Actor imported from Actor</p>
+            
+            <pre><code class="language-python">from Enemy import Enemy&#xD;&#xA;&#xA;# Unused Actor imported from Actor&#xA;from Actor import Actor&#xD;</code></pre>
+        </div>
+        <br/><br/>
+        <div class="bg-dark p-3">
+                <h2>Found on line 3  on column 0</h2>
+            <p>According to pylint - with code import-error</p>
+            <p>Unable to import &#x27;Item&#x27;</p>
+            
+            <pre><code class="language-python">from Actor import Actor&#xD;&#xA;&#xA;# Unable to import &#x27;Item&#x27;&#xA;from Item import Item&#xD;</code></pre>
+        </div>
+        <br/><br/>
+        <div class="bg-dark p-3">
+                <h2>Found on line 3  on column 0</h2>
+            <p>According to pylint - with code unused-import</p>
+            <p>Unused Item imported from Item</p>
+            
+            <pre><code class="language-python">from Actor import Actor&#xD;&#xA;&#xA;# Unused Item imported from Item&#xA;from Item import Item&#xD;</code></pre>
+        </div>
+        <br/><br/>
+        <div class="bg-dark p-3">
+                <h2>Found on line 1  on column 0</h2>
+            <p>According to pylint - with code import-error</p>
+            <p>Unable to import &#x27;Enemy&#x27;</p>
+            
+            <pre><code class="language-python"># Unable to import &#x27;Enemy&#x27;&#xA;from Enemy import Enemy&#xD;</code></pre>
+        </div>
+        <br/><br/>
+        <div class="bg-dark p-3">
+                <h2>Found on line 4  on column 0</h2>
+            <p>According to pylint - with code import-error</p>
+            <p>Unable to import &#x27;Player&#x27;</p>
+            
+            <pre><code class="language-python">from Item import Item&#xD;&#xA;&#xA;# Unable to import &#x27;Player&#x27;&#xA;from Player import Player&#xD;</code></pre>
+        </div>
+        <br/><br/>
+</div>
+<div class="container p-3"><pre><code class="language-python">from Enemy import Enemy
+from Actor import Actor
+from Item import Item
+from Player import Player
+
+player = Player(name="Donald Duck",
+                hitpoints=50,
+                max_health=50)
+
+spider = Enemy(name="Spider Queen",
+               hitpoints=75,
+               max_health=120)
+
+actors = [player, spider]
+
+for actor in actors:
+    print(actor.name, actor.hitpoints)
+</code></pre></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+      document.querySelectorAll('pre code').forEach((el) => {
+        hljs.highlightElement(el);
+      });
+    });
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+    return new bootstrap.Tooltip(tooltipTriggerEl)
+})
+</script>
+</body>
+</html>
