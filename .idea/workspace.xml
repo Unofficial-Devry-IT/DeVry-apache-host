@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2f311ed1-c1ff-4dd7-8be9-d15e64f3e182" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/htdocs/images/Devry.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htdocs/images/flag_transparent.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htdocs/images/murica.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htdocs/reports/Badger2-3_Actor_report.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htdocs/reports/Badger2-3_Item_report.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/htdocs/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htdocs/report.html" beforeDir="false" />
-    </list>
+    <list default="true" id="2f311ed1-c1ff-4dd7-8be9-d15e64f3e182" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -38,6 +30,7 @@
       <option name="presentableId" value="Default" />
       <updated>1626929182828</updated>
       <workItem from="1626929186005" duration="80000" />
+      <workItem from="1627516787320" duration="1000" />
     </task>
     <servers />
   </component>
