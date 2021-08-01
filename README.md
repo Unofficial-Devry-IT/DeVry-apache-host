@@ -26,6 +26,7 @@ I do this using certbot, and manually renaming the files into the /conf director
 Since certs expire every 90 days, this is done on the dockerhost machine and then copied into the directory. It can be scripted out, however, I choose to do this manually.
 
 # How to setup SSL
+
 Original version of instructions can be found [here](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-using-lets-encrypt-certificates-with-wordpress)
 
 I compiled directions for SSL, they can be found [here](https://www.traveryates.com/adding-ssl-cert-to-apache-container/)
