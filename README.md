@@ -1,4 +1,4 @@
-# Devry-services_apache
+# DeVry-services_apache
 This is the deployed Apache Server for https://www.unofficialdevrycom.dev website.
 
 You can find our discord at https://discord.io/unofficial-DevryIT
