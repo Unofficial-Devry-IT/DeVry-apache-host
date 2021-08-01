@@ -1,4 +1,4 @@
-# Unofficial-DeVry_services_apache
+# Devry-services_apache
 This is the deployed Apache Server for https://www.unofficialdevrycom.dev website.
 
 You can find our discord at https://discord.io/unofficial-DevryIT
@@ -18,5 +18,3 @@ Since certs expire every 90 days, this is done on the dockerhost machine and the
 I used a modified version of the directions found at https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-using-lets-encrypt-certificates-with-wordpress
 
 I added directions here https://www.traveryates.com/adding-ssl-cert-to-apache-container/
-
-Updated: 8.1.2021
