@@ -3,6 +3,7 @@
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/Unofficial-Devry-IT/DeVry-apache-host?label=Commit%20Activity)
 
 #### Stats
+ [![Discord](https://discord.com/api/guilds/618254766396538901/widget.png)](https://discord.io/unofficial-DevryIT)
 ![GitHub issues](https://img.shields.io/github/issues/Unofficial-Devry-IT/DeVry-apache-host?label=Issues)
 ![GitHub pull requests](https://img.shields.io/github/issues-pr/Unofficial-Devry-IT/DeVry-apache-host?label=PRs)
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/Unofficial-Devry-IT/DeVry-apache-host?label=Size)
@@ -11,7 +12,8 @@
 
 # DeVry-services_apache
 This is the deployed Apache Server for our [Unofficial DeVry IT Community](https://www.unofficialdevrycom.dev) website.
- 
+
+
 You can join our discord by clicking [here](https://discord.io/unofficial-DevryIT)
 
 Our bot and website are used in an academic setting for students and professors at DeVry University.
